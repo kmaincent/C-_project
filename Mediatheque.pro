@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     mediatheque.cpp \
     vhs.cpp \
     enum_string_type.cpp \
-    id_function.cpp
+    id_function.cpp \
+    utilisateur.cpp
 
 HEADERS += \
     ressource_num.h \
@@ -32,4 +33,5 @@ HEADERS += \
     vhs.h \
     enum_string_type.h \
     include.h \
-    id_function.h
+    id_function.h \
+    utilisateur.h

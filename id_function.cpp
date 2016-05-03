@@ -66,7 +66,7 @@ int id_function(mediatheque& media, std::string str, std::string param)
         break;
     case ERROR:
     default :
-        cout<<"Mauvaise commande, veuillez réessayer."<<endl;
+        cout<<"Mauvaise commande, veuillez reessayer."<<endl;
         break;
 
     }

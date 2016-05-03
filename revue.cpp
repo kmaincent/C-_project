@@ -55,9 +55,9 @@ void revue::save(std::ofstream &infile) const
 void revue::show() const
 {
     livre::show();
-    cout<<"L'editeur est : "<<editeur<<endl
-       <<"Il y à "<<nb_article<<"articles"<<endl
-      <<nom_article<<endl;
+    cout<<"Editeur: "<<editeur<<endl
+       <<"Nombre d'articles: "<<nb_article <<endl
+      <<"Article: " << nom_article<<endl;
     /*for(int i=0;i<nb_article;i++)
     {
         cout<<"Article "<<i<<" : "<<article[i]<<endl;

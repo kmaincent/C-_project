@@ -54,10 +54,10 @@ livre::livre(type_ressource _type, int _id, std::string _titre, std::string _aut
 void livre::show() const
 {
     ressource::show();
-    cout<<" publié en : "<<annee_publication<<endl
-       <<"Composé de "<<nb_pages<<" pages"<<endl
-      <<"Appartient à la collection "<<collection<<endl
-     <<"Son résumé est : "<<resume<<endl;
+    cout << "Annee de publication: " << annee_publication << endl
+       << "Nombre de pages: " << nb_pages << endl
+      <<"Collection: "<<collection<<endl
+     <<"Resume: "<<resume<<endl;
 }
 
 void livre::save(std::ofstream &infile) const

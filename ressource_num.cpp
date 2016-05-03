@@ -44,9 +44,9 @@ ressource_num::ressource_num(type_ressource _type, int _id, std::string _titre, 
 void ressource_num::show() const
 {
     ressource::show();
-    cout<<" de format "<<format<<endl
-       <<", de taille "<<taille<<" MO."<<endl
-      <<"Disponible sur "<<URL<<endl;
+    cout<<"Format"<<format<<endl
+       <<"Taille: "<<taille<< "Ko" <<endl
+      <<"URL: "<<URL<<endl;
 }
 
 void ressource_num::save(std::ofstream &infile) const

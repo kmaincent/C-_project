@@ -24,7 +24,7 @@ cd::cd(type_ressource _type, int _id, std::string _titre, std::string _auteur, i
 void cd::show() const
 {
     vhs::show();
-    cout<<"Il y a "<<nb_pistes<<" pistes."<<endl;
+    cout << "Nombre de pistes: " << nb_pistes << endl;
 }
 
 void cd::save(std::ofstream &infile) const
