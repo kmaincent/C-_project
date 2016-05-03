@@ -7,12 +7,14 @@
 #include <string>
 #include <cstdlib>
 #include <vector>
+#include <algorithm>    // std::transform
+#include <unistd.h>
 using namespace std;
 
+#include "utilisateur.h"
 #include "id_function.h"
 #include "enum_string_type.h"
 #include "ressource.h"
-#include "utilisateur.h"
 #include "livre.h"
 #include "revue.h"
 #include "vhs.h"

@@ -9,9 +9,13 @@ class utilisateur
 	bool admin;
 	
 	public :
+    utilisateur();
 	utilisateur(string _nom);
-	void is_admin(string pass);	
+    bool is_admin(string pass);
 	string nom_user() const;
+    string getNom() const;
+    void setNom(const string &value);
+    bool getAdmin() const;
 };
 
 #endif 	
