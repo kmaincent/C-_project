@@ -28,17 +28,20 @@ void dvd::affiche() const
     cout<<"Il y a "<<nb_chap<<" chapitres."<<endl;
 }
 
-int dvd::save(std::ofstream &infile) const
+void dvd::save(std::ofstream &infile) const
 {
     vhs::save(infile);
     infile<<nb_chap<<endl;
 }
 
-void dvd::load(std::ifstream &file)
+void dvd::load(std::istream &file)
 {
     string tampon;
     vhs::load(file);
+    cout << "Combien y a-t-il de chapitres dans ce DVD?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setNb_chap(atoi(tampon.c_str()));
 }
 

@@ -1,5 +1,6 @@
 #include "include.h"
 
+// Compléter LOAD pour gérer le nombre d'articles le remplissage des titres etc ...
 
 string revue::getEditeur() const
 {
@@ -65,15 +66,24 @@ void revue::affiche() const
 
 
 
-void revue::load(std::ifstream &file)
+void revue::load(std::istream &file)
 {
     string tampon;
     livre::load(file);
+    cout << "Quel est l'editeur de cette revue?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setEditeur(tampon);
+    cout << "Combien d'articles cette revue comporte-t-elle?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setNb_article(atoi(tampon.c_str()));
+    cout << "Quel est le nom de l'article?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setNom_article(tampon);
 }
 

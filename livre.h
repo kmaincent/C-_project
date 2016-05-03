@@ -10,10 +10,10 @@ protected:
 public:
     livre();
     livre(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume);
-    void affiche() const;
-    void save(std::ofstream &infile) const;
-    void load(std::ifstream &file);
-    bool search(std::string str);
+    virtual void affiche() const;
+    virtual void save(std::ofstream &infile) const;
+    virtual void load(std::istream &file);
+    virtual bool search(std::string str);
 
     std::string getResume() const;
     void setResume(const std::string &value);

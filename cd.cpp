@@ -27,17 +27,20 @@ void cd::affiche() const
     cout<<"Il y a "<<nb_pistes<<" pistes."<<endl;
 }
 
-int cd::save(std::ofstream &infile) const
+void cd::save(std::ofstream &infile) const
 {
     vhs::save(infile);
     infile<<nb_pistes<<endl;
 }
 
-void cd::load(std::ifstream &file)
+void cd::load(std::istream &file)
 {
     string tampon;
     vhs::load(file);
+    cout << "Combien y a-t-il de pistes sur ce CD?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setNb_pistes(atoi(tampon.c_str()));
 }
 

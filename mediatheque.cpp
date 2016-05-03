@@ -10,15 +10,45 @@ mediatheque::~mediatheque()
 {
     for (unsigned int i(0); i<base_donnees.size(); i++)
     {
-        delete base_donnees[i];
+        delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
         base_donnees[i]=0;
     }
 }
 
 void mediatheque::add(std::string param)
 {
+    switch (enum_string_type(param))
+    {
+    case CD:
+        base_donnees.push_back(new cd());
+        break;
+    case DVD:
+        base_donnees.push_back(new dvd());
+        break;
+    case LIVRE:
+        base_donnees.push_back(new livre());
+        break;
+    case REVUE:
+        base_donnees.push_back(new revue());
+        break;
+    case VHS:
+        base_donnees.push_back(new vhs());
+        break;
+    case RESSOURCE_NUM:
+        base_donnees.push_back(new ressource_num());
+        break;
+    default:
+        cout<<"Ce type de ressource n'existe pas"<<endl;
+        return;
+        break;
 
+    }
+    base_donnees[nb_ressource]->setType(enum_string_type(param));
+    base_donnees[nb_ressource]->load(cin);
+    nb_ressource++;
 }
+
+
 
 void mediatheque::save(std::string file_name)
 {
@@ -43,7 +73,7 @@ int mediatheque::load(const std::string file_name)
     infile.open(file_name.c_str());
     if (infile.fail())
     {
-        cout<<"plus de ficher"<<endl;
+        cout<<"Ce fichier n'existe pas."<<endl;
         return false;
     }
     getline(infile, type);
@@ -75,10 +105,12 @@ int mediatheque::load(const std::string file_name)
             break;
 
         }
+        std::cout.setstate(std::ios_base::failbit);
         base_donnees[nb_ressource]->setType(enum_string_type(type));
         base_donnees[nb_ressource]->load(infile);
         nb_ressource++;
         getline(infile, type);
+        std::cout.clear();
     }
     return 1;
 }

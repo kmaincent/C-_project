@@ -10,21 +10,24 @@ int main(int argc, char *argv[])
     cout<<"Bonjour!"<<endl<<"Vous utilisez l'application eirbmedia qui reference toutes les donnees disponibles dans la bibliotheque."<<endl;
 
     do{
-        getline(cin, str);
-        if (str.size()!=0)
-        {
-            pos=str.find(' ');
+        cout<<"Veuillez entrer votre commande : "<<endl;
+        do{
+            str="";
+            getline(cin, str);
+        }
+        while (str.size()==0);
 
-            if(pos==std::string::npos)
-            {
-                fonction=str;
-                param="";
-            }
-            else
-            {
-                fonction=str.substr(0,pos);
-                param=str.substr(pos+1, str.size());
-            }
+        pos=str.find(' ');
+
+        if(pos==(signed)std::string::npos)
+        {
+            fonction=str;
+            param="";
+        }
+        else
+        {
+            fonction=str.substr(0,pos);
+            param=str.substr(pos+1, str.size());
         }
     }
     while(id_function(media, fonction, param));

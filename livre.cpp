@@ -70,17 +70,29 @@ void livre::save(std::ofstream &infile) const
 
 }
 
-void livre::load(std::ifstream &file)
+void livre::load(std::istream &file)
 {	
     string tampon;
     ressource::load(file);
+    cout << "En quel annee ce livre a-t-il ete publie?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setAnnee_publication(atoi(tampon.c_str()));
+    cout << "Combien y a-t-il de pages dans ce livre?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setNb_pages(atoi(tampon.c_str()));
+    cout << "Dans quelle collection ce livre a-t-il ete publie?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setCollection(tampon);
+    cout << "Avez-vous un resume de ce livre?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setResume(tampon);
 
 }

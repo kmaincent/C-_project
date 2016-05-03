@@ -47,12 +47,18 @@ void ressource::save(std::ofstream &infile) const
         <<auteur<<endl;
 }
 
-void ressource::load(std::ifstream &file)
+void ressource::load(std::istream &file)
 {
     string tampon;
+    cout << "Quel est le titre de cette oeuvre?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setTitre(tampon);
+    cout << "Qui est l'auteur de cette oeuvre?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setAuteur(tampon);
 }
 

@@ -55,15 +55,24 @@ void ressource_num::save(std::ofstream &infile) const
     infile<<format<<endl<<taille<<endl<<URL<<endl;
 }
 
-void ressource_num::load(std::ifstream &file)
+void ressource_num::load(std::istream &file)
 {
     string tampon;
     ressource::load(file);
+    cout << "Quel est le format de cette ressource?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setFormat(tampon);
+    cout << "Quelle est la taille de cette ressource? (En octets)" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setTaille(atoi(tampon.c_str()));
+    cout << "Quem est l'URL de cette ressource?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setURL(tampon);
 }
 

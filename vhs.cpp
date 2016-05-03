@@ -37,19 +37,25 @@ void vhs::affiche() const
     cout<<" de durée "<<duree<<" dont la maison de production est : "<<maison_prod<<endl;
 }
 
-int vhs::save(std::ofstream &infile) const
+void vhs::save(std::ofstream &infile) const
 {
     ressource::save(infile);
     infile<<duree<<endl<<maison_prod<<endl;
 }
 
-void vhs::load(std::ifstream &file)
+void vhs::load(std::istream &file)
 {
     string tampon;
     ressource::load(file);
+    cout << "Quelle est la duree de ce media?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setDuree(atoi(tampon.c_str()));
+    cout << "Quelle est la maison de production de ce media?" << endl;
+    do{
     getline( file, tampon);
+    }while(tampon.size()==0);
     setMaison_prod(tampon);
 }
 

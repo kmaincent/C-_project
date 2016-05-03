@@ -11,8 +11,8 @@ public:
     cd();
     cd(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, int _nb_pistes);
     void affiche() const;
-    int save(std::ofstream &infile) const;
-    void load(std::ifstream &file);
+    void save(std::ofstream &infile) const;
+    void load(std::istream &file);
     bool search(std::string str);
 
     int getNb_pistes() const;

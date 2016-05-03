@@ -1,5 +1,16 @@
 #include "include.h"
 
+void is_a_parameter(std::string& param)
+{
+    if (param=="")
+    {
+        cout << "Cette fonction necessite un second parametre. Veuillez le specifier : " << endl;
+        cin >> param ;
+        cin.ignore();
+
+    }
+}
+
 int id_function(mediatheque& media, std::string str, std::string param)
 {
     list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, ERROR};
@@ -21,16 +32,19 @@ int id_function(mediatheque& media, std::string str, std::string param)
         return 0;
         break;
     case ADD :
-        cout << "Yes : " << param << endl;
+        is_a_parameter(param);
         media.add(param);
         break;
     case LOAD :
+        is_a_parameter(param);
         media.load(param);
         break;
     case SAVE :
+        is_a_parameter(param);
         media.save(param);
         break;
     case SEARCH :
+        is_a_parameter(param);
         media.search(param);
         break;
     case CLEAR :
@@ -40,9 +54,11 @@ int id_function(mediatheque& media, std::string str, std::string param)
         media.list();
         break;
     case SHOW :
+        is_a_parameter(param);
         media.show(param);
         break;
     case DELETE :
+        is_a_parameter(param);
         media.delet(param);
         break;
     case RESET :
