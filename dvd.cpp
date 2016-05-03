@@ -45,7 +45,7 @@ void dvd::load(std::istream &file)
     setNb_chap(atoi(tampon.c_str()));
 }
 
-bool dvd::search(std::string str)
+bool dvd::search(std::string str) const
 {
     if (vhs::search(str))
         return true;

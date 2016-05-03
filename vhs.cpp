@@ -60,7 +60,7 @@ void vhs::load(std::istream &file)
     setMaison_prod(tampon);
 }
 
-bool vhs::search(std::string str)
+bool vhs::search(std::string str) const
 {
     if (ressource::search(str))
         return true;

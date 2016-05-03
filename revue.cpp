@@ -87,7 +87,7 @@ void revue::load(std::istream &file)
     setNom_article(tampon);
 }
 
-bool revue::search(std::string str)
+bool revue::search(std::string str) const
 {
     if (livre::search(str))
         return true;
