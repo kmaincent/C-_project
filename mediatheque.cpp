@@ -102,6 +102,7 @@ int mediatheque::load(const std::string file_name)
             break;
         default:
             cout<<"Ce type de ressource n'existe pas"<<endl;
+            return 1;
             break;
 
         }

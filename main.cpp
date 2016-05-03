@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     getline(cin, str);
     if (str=="y")
     {
-        cout<<"Quel est le mot de passe"<<endl;
+        cout<<"Quel est le mot de passe?"<<endl;
         for(int i = 3; i>=0 ; i--)
         {
             str="";
@@ -35,8 +35,6 @@ int main(int argc, char *argv[])
 
     cout<<"Connection"<<endl;
     do{
-        sleep(1);
-        cout << "\033[2J\033[1;1H";
         if(user.getAdmin())
             cout<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;
         else

@@ -7,7 +7,6 @@ void is_a_parameter(std::string& param)
         cout << "Cette fonction necessite un second parametre. Veuillez le specifier : " << endl;
         cin >> param ;
         cin.ignore();
-        transform(param.begin(), param.end(), param.begin(), ::toupper);
     }
 }
 
@@ -24,7 +23,6 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
             break;
         }
     }
-    transform(param.begin(), param.end(), param.begin(), ::toupper);
     switch (_function)
     {
     case BYE :
@@ -38,6 +36,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
             break;
         }
         is_a_parameter(param);
+        transform(param.begin(), param.end(), param.begin(), ::toupper);
         media.add(param);
         break;
     case LOAD :
