@@ -10,7 +10,7 @@ private:
 public:
     ressource_num();
     ressource_num(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _taille, std::string _format, std::string _URL);
-    void affiche() const;
+    void show() const;
     void save(std::ofstream &infile) const;
     void load(std::istream &file);
     bool search(std::string str);

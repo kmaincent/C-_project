@@ -41,9 +41,9 @@ ressource_num::ressource_num(type_ressource _type, int _id, std::string _titre, 
 {
 }
 
-void ressource_num::affiche() const
+void ressource_num::show() const
 {
-    ressource::affiche();
+    ressource::show();
     cout<<" de format "<<format<<endl
        <<", de taille "<<taille<<" MO."<<endl
       <<"Disponible sur "<<URL<<endl;

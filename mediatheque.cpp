@@ -129,7 +129,7 @@ void mediatheque::show(std::string param)
 {
     int _id = atoi(param.c_str());
     if (_id<nb_ressource or _id > 0 )
-        base_donnees[_id-1]->affiche();
+        base_donnees[_id-1]->show();
     else
         cout<<"Pas de ressource à cet ID"<<endl;
 }
@@ -158,7 +158,7 @@ void mediatheque::list()
 
     for (unsigned int i=0; i<base_recherche.size(); i++)
     {  if(base_recherche[i]==1)
-            base_donnees[i]->affiche();
+            base_donnees[i]->show();
     }
 
 }

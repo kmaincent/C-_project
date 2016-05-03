@@ -21,9 +21,9 @@ cd::cd(type_ressource _type, int _id, std::string _titre, std::string _auteur, i
 {
 }
 
-void cd::affiche() const
+void cd::show() const
 {
-    vhs::affiche();
+    vhs::show();
     cout<<"Il y a "<<nb_pistes<<" pistes."<<endl;
 }
 

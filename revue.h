@@ -11,7 +11,7 @@ private :
 public :
     revue();
     revue(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume, std::string _editeur, int _nb_article, std::string _nom_article);
-    void affiche() const;
+    void show() const;
     void save(std::ofstream &infile) const;
     void load(std::istream &file);
     bool search(std::string str);

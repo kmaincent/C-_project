@@ -62,7 +62,7 @@ void ressource::load(std::istream &file)
     setAuteur(tampon);
 }
 
-void ressource::affiche() const
+void ressource::show() const
 {
     cout<<"Article N°"<<id<<" : "<<titre<<endl
        <<"Ecrit par : "<<auteur<<endl

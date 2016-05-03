@@ -22,9 +22,9 @@ dvd::dvd(type_ressource _type, int _id, std::string _titre, std::string _auteur,
 {
 }
 
-void dvd::affiche() const
+void dvd::show() const
 {
-    vhs::affiche();
+    vhs::show();
     cout<<"Il y a "<<nb_chap<<" chapitres."<<endl;
 }
 

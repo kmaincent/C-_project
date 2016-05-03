@@ -52,9 +52,9 @@ void revue::save(std::ofstream &infile) const
     }*/
 }
 
-void revue::affiche() const
+void revue::show() const
 {
-    livre::affiche();
+    livre::show();
     cout<<"L'editeur est : "<<editeur<<endl
        <<"Il y à "<<nb_article<<"articles"<<endl
       <<nom_article<<endl;

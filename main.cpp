@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
 
     /*livre book1(LIVRE, 1,"cest le boud1", "einstein", 1994, 21,"numorama", "il etait une fois");
-    book1.affiche();
+    book1.show();
     */
     return 1;
 }
