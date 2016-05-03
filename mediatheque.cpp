@@ -74,7 +74,7 @@ int mediatheque::load(const std::string file_name)
     if (infile.fail())
     {
         cout<<"Ce fichier n'existe pas."<<endl;
-        return false;
+        return 0;
     }
     getline(infile, type);
     while(type.size()!=0)
@@ -110,6 +110,7 @@ int mediatheque::load(const std::string file_name)
         base_donnees[nb_ressource]->setType(enum_string_type(type));
         base_donnees[nb_ressource]->load(infile);
         nb_ressource++;
+        type="";
         getline(infile, type);
         std::cout.clear();
     }
@@ -129,10 +130,10 @@ void mediatheque::search(std::string param)
 void mediatheque::show(std::string param)
 {
     int _id = atoi(param.c_str());
-    if (_id<nb_ressource or _id > 0 )
+    if (_id<=nb_ressource and _id > 0 )
         base_donnees[_id-1]->show();
     else
-        cout<<"Pas de ressource à cet ID"<<endl;
+        cout<<"Pas de ressource à cet ID"<<nb_ressource<<endl;
 }
 
 void mediatheque::delet(std::string param)
@@ -141,7 +142,7 @@ void mediatheque::delet(std::string param)
     if (_id<nb_ressource or _id > 0)
         base_donnees.erase(base_donnees.begin() + _id -1);
     else
-        cout<<"Pas de ressource à cet ID"<<endl;
+        cout<<"Pas de ressource à cet ID"<<nb_ressource<<endl;
 
 }
 

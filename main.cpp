@@ -23,22 +23,18 @@ int main(int argc, char *argv[])
             str="";
             getline(cin, str);
             if(user.is_admin(str))
-            {
-                cout<<"Vous etes connecte en tant qu'administrateur"<<endl;
                 break;
-            }
             cout<<"Mauvais mot de passe."<<endl
                    <<"Il vous reste "<<i<<" essai"<<endl;
 
         }
     }
 
-    cout<<"Connection"<<endl;
     do{
         if(user.getAdmin())
-            cout<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;
+            cout<<endl<<endl<<"Bienvenu "<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;
         else
-           cout<<user.getNom()<<" vous etes connecte en tant qu'utilisateur"<<endl;
+            cout<<endl<<endl<<"Bienvenu "<<user.getNom()<<" vous etes connecte en tant qu'utilisateur"<<endl;
 
         cout<<"Veuillez entrer votre commande : "<<endl;
         do{

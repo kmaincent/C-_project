@@ -14,7 +14,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
 {
     list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, ERROR};
     list_function _function = ERROR;
-
+    transform(str.begin(), str.end(), str.begin(), ::toupper);
     for (int i=0; i<10; i++)
     {
         if(str==list_function_str[i])
