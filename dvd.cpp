@@ -25,7 +25,7 @@ dvd::dvd(type_ressource _type, int _id, std::string _titre, std::string _auteur,
 void dvd::show() const
 {
     vhs::show();
-    cout<<"Il y a "<<nb_chap<<" chapitres."<<endl;
+    cout << "Nombre de chapitres: " << nb_chap << endl;
 }
 
 void dvd::save(std::ofstream &infile) const

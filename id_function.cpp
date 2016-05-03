@@ -86,7 +86,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         break;
     case ERROR:
     default :
-        cout<<"Mauvaise commande, veuillez réessayer."<<endl;
+        cout<<"Mauvaise commande, veuillez reessayer."<<endl;
         break;
 
     }

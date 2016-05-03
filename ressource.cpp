@@ -64,9 +64,9 @@ void ressource::load(std::istream &file)
 
 void ressource::show() const
 {
-    cout<<"Article N°"<<id<<" : "<<titre<<endl
-       <<"Ecrit par : "<<auteur<<endl
-      <<enum_string_type(type);
+    cout<<"Article: "<<titre<<endl
+       <<"Auteur: " << auteur << endl
+      <<"Type: " << enum_string_type(type) << endl;
 }
 
 bool ressource::search(std::string str) const

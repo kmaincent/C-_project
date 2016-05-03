@@ -34,7 +34,8 @@ vhs::vhs(type_ressource _type, int _id, std::string _titre, std::string _auteur,
 void vhs::show() const
 {
     ressource::show();
-    cout<<" de durée "<<duree<<" dont la maison de production est : "<<maison_prod<<endl;
+    cout<<"Duree: "<<duree<<"min"<< endl
+       << "Maison de production: "<<maison_prod<<endl;
 }
 
 void vhs::save(std::ofstream &infile) const
