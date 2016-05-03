@@ -7,11 +7,11 @@ void is_a_parameter(std::string& param)
         cout << "Cette fonction necessite un second parametre. Veuillez le specifier : " << endl;
         cin >> param ;
         cin.ignore();
-
+        transform(param.begin(), param.end(), param.begin(), ::toupper);
     }
 }
 
-int id_function(mediatheque& media, std::string str, std::string param)
+int id_function(mediatheque& media, utilisateur user, std::string str, std::string param)
 {
     list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, ERROR};
     list_function _function = ERROR;
@@ -24,7 +24,7 @@ int id_function(mediatheque& media, std::string str, std::string param)
             break;
         }
     }
-
+    transform(param.begin(), param.end(), param.begin(), ::toupper);
     switch (_function)
     {
     case BYE :
@@ -32,6 +32,11 @@ int id_function(mediatheque& media, std::string str, std::string param)
         return 0;
         break;
     case ADD :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            break;
+        }
         is_a_parameter(param);
         media.add(param);
         break;
@@ -40,6 +45,11 @@ int id_function(mediatheque& media, std::string str, std::string param)
         media.load(param);
         break;
     case SAVE :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            break;
+        }
         is_a_parameter(param);
         media.save(param);
         break;
@@ -58,10 +68,20 @@ int id_function(mediatheque& media, std::string str, std::string param)
         media.show(param);
         break;
     case DELETE :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            break;
+        }
         is_a_parameter(param);
         media.delet(param);
         break;
     case RESET :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            break;
+        }
         media.reset();
         break;
     case ERROR:

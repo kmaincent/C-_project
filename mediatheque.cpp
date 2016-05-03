@@ -11,7 +11,7 @@ mediatheque::~mediatheque()
     for (unsigned int i(0); i<base_donnees.size(); i++)
     {
         delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
-        base_donnees[i]=0;
+        base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
 }
 
@@ -165,5 +165,16 @@ void mediatheque::list()
 
 void mediatheque::reset()
 {
-
+    nb_ressource=0;
+    nb_livre=0;
+    nb_revue=0;
+    nb_cd=0;
+    nb_vhs=0;
+    nb_dvd=0;
+    nb_docnum=0;
+    for (unsigned int i(0); i<base_donnees.size(); i++)
+    {
+        delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
+        base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
+    }
 }

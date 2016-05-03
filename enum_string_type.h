@@ -2,7 +2,7 @@
 #define ENUM_STRING_TYPE_H
 
 enum type_ressource {LIVRE, REVUE, CD, VHS, DVD, RESSOURCE_NUM, ERROR_RES};
-const std::string  type_string[]={"livre", "revue", "CD", "VHS", "DVD", "ressource_numerique"};
+const std::string  type_string[]={"LIVRE", "REVUE", "CD", "VHS", "DVD", "RESSOURCE NUM"};
 
 type_ressource enum_string_type(std::string str_type);
 std::string enum_string_type(type_ressource enum_type);
