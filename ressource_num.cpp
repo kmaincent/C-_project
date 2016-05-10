@@ -76,7 +76,7 @@ void ressource_num::load(std::istream &file)
     setURL(tampon);
 }
 
-bool ressource_num::search(std::string str)
+bool ressource_num::search(std::string str) const
 {
     if (ressource::search(str))
         return true;

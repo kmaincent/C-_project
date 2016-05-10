@@ -10,10 +10,10 @@ private:
 public:
     ressource_num();
     ressource_num(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _taille, std::string _format, std::string _URL);
-    void show() const;
-    void save(std::ofstream &infile) const;
-    void load(std::istream &file);
-    bool search(std::string str);
+    virtual void show() const;
+    virtual void save(std::ofstream &infile) const;
+    virtual bool search(std::string str) const;
+    virtual void load(std::istream &file);
 
     int getTaille() const;
     void setTaille(int value);

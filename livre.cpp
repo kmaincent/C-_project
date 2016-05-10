@@ -66,7 +66,7 @@ void livre::save(std::ofstream &infile) const
     infile<< annee_publication << endl
           <<nb_pages<<endl
          <<collection<<endl
-        <<resume;
+        <<resume<<endl;
 
 }
 
@@ -97,10 +97,11 @@ void livre::load(std::istream &file)
 
 }
 
-bool livre::search(std::string str)
+bool livre::search(std::string str) const
 {
     if (ressource::search(str))
         return true;
+
     if (collection.find(str)!=string::npos)
         return true;
     if (resume.find(str)!=string::npos)

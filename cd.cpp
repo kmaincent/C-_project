@@ -44,7 +44,7 @@ void cd::load(std::istream &file)
     setNb_pistes(atoi(tampon.c_str()));
 }
 
-bool cd::search(std::string str)
+bool cd::search(std::string str) const
 {
     if (vhs::search(str))
         return true;
