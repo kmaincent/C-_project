@@ -1,11 +1,6 @@
 #include "include.h"
 
 
-bool utilisateur::getAdmin() const
-{
-    return admin;
-}
-
 utilisateur::utilisateur()
 {
 }
@@ -13,6 +8,12 @@ utilisateur::utilisateur()
 utilisateur::utilisateur(string _nom):nom(_nom), admin(false)
 {
 }
+
+bool utilisateur::getAdmin() const
+{
+    return admin;
+}
+
 
 bool utilisateur::is_admin(string pass)
 {
@@ -31,3 +32,5 @@ void utilisateur::setNom(const string &value)
 {
     nom = value;
 }
+
+

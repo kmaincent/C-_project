@@ -26,13 +26,14 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     switch (_function)
     {
     case BYE :
-        cout<<"Au revoir, merci d'avoir utilise notre logiciel"<<endl;
+        cout<<"Au revoir, merci d'avoir utilisé notre logiciel"<<endl;
+        media.save_state(user);
         return 0;
         break;
     case ADD :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
             break;
         }
         is_a_parameter(param);
@@ -46,7 +47,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case SAVE :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
             break;
         }
         is_a_parameter(param);
@@ -69,7 +70,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case DELETE :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
             break;
         }
         is_a_parameter(param);
@@ -78,7 +79,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case RESET :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
             break;
         }
         media.reset();

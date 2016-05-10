@@ -64,6 +64,8 @@ bool vhs::search(std::string str) const
 {
     if (ressource::search(str))
         return true;
+    if (duree==atoi(str.c_str()))
+        return true;
     if (maison_prod.find(str)!=string::npos)
         return true;
 

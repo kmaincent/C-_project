@@ -1,10 +1,10 @@
 #include "include.h"
 
-int main(int argc, char *argv[])
+
+int main()
 {
 
     mediatheque media;
-    media.load("Backup.txt"); // #FAINEANT
     string str, fonction, param;
     int pos=0;
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     getline(cin, str);
     if (str=="y")
     {
-        cout<<"Quel est le mot de passe?"<<endl;
+        cout<<"Quel est le mot de passe"<<endl;
         for(int i = 3; i>=0 ; i--)
         {
             str="";
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
         }
     }
-    user.is_admin("ADMIN");
+    media.load_state(user);
     do{
         if(user.getAdmin())
             cout<<endl<<endl<<"Bienvenu "<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;
@@ -59,8 +59,7 @@ int main(int argc, char *argv[])
     }
     while(id_function(media, user, fonction, param));
 
-
-
+    media.~mediatheque();
 
     return 1;
 }
