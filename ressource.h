@@ -6,8 +6,8 @@
 class ressource
 {
 protected:
-    string titre, auteur;
     int id;
+    string titre, auteur;
     type_ressource type;
 
 public:

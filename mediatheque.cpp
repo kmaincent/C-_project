@@ -1,8 +1,10 @@
 #include "include.h"
 
 
+
+
 mediatheque::mediatheque():
-    nb_ressource(0), nb_livre(0), nb_revue(0), nb_cd(0), nb_vhs(0), nb_dvd(0), nb_docnum(0)
+    nb_ressource(0), nb_livre(0), nb_revue(0), nb_cd(0), nb_vhs(0), nb_dvd(0), nb_docnum(0), nom_media("")
 {
 }
 
@@ -13,6 +15,16 @@ mediatheque::~mediatheque()
         delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
         base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
+}
+
+string mediatheque::getNom_media() const
+{
+    return nom_media;
+}
+
+void mediatheque::setNom_media(const string &value)
+{
+    nom_media = value;
 }
 
 void mediatheque::add(std::string param)
@@ -58,11 +70,13 @@ void mediatheque::save(std::string file_name)
     if (infile.fail())
     {
         cout<<"Probleme d'ouverture de fichier"<<endl;
+        return;
     }
     for (unsigned int i(0); i<base_donnees.size(); i++)
     {
         base_donnees[i]->save(infile);
     }
+    nom_media=file_name;
     infile.close();
 }
 
@@ -76,6 +90,7 @@ int mediatheque::load(const std::string file_name)
         cout<<"Ce fichier n'existe pas."<<endl;
         return 0;
     }
+    nom_media=file_name;
     getline(infile, type);
     while(type.size()!=0)
     {
@@ -179,4 +194,50 @@ void mediatheque::reset()
         delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
         base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
+}
+
+void mediatheque::load_state(utilisateur user)
+{
+    string tampon;
+    ifstream infile;
+    infile.open(user.getNom().c_str());
+    if (infile.fail())
+    {
+        cout<<"Ce fichier n'existe pas."<<endl;
+        return;
+    }
+    tampon="";
+    getline(infile, tampon);
+    load(tampon);
+    tampon="";
+    getline(infile, tampon);
+    base_recherche.resize(base_donnees.size(),true);
+    for(unsigned i(0) ; i < base_recherche.size() ; i++) {
+
+        if (tampon[i] == '0')
+            base_recherche[i] = false;
+        else if(tampon[i] == '1')
+            base_recherche[i] = true;
+
+    }
+
+}
+
+void mediatheque::save_state(utilisateur user) const
+{
+    string tampon;
+    ofstream infile;
+    infile.open(user.getNom().c_str());
+    if (infile.fail())
+        return;
+    infile<<nom_media<<endl;
+    for(unsigned i(0) ; i < base_recherche.size() ; i++) {
+
+        if (base_recherche[i])
+            infile<<1;
+        else if(!base_recherche[i])
+            infile<<0;
+
+    }
+    infile.close();
 }

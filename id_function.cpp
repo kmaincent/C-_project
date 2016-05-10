@@ -27,6 +27,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     {
     case BYE :
         cout<<"Au revoir, merci d'avoir utilisé notre logiciel"<<endl;
+        media.save_state(user);
         return 0;
         break;
     case ADD :

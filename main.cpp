@@ -1,6 +1,7 @@
 #include "include.h"
 
-int main(int argc, char *argv[])
+
+int main()
 {
 
     mediatheque media;
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 
         }
     }
-
+    media.load_state(user);
     do{
         if(user.getAdmin())
             cout<<endl<<endl<<"Bienvenu "<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;
@@ -58,8 +59,7 @@ int main(int argc, char *argv[])
     }
     while(id_function(media, user, fonction, param));
 
-
-
+    media.~mediatheque();
 
     return 1;
 }

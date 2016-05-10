@@ -30,7 +30,7 @@ void ressource::setType(const type_ressource &value)
 {
     type = value;
 }
-ressource::ressource()
+ressource::ressource() : id(0)
 {
 
 }

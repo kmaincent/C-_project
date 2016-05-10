@@ -101,7 +101,8 @@ bool livre::search(std::string str) const
 {
     if (ressource::search(str))
         return true;
-
+    if (annee_publication==atoi(str.c_str()))
+        return true;
     if (collection.find(str)!=string::npos)
         return true;
     if (resume.find(str)!=string::npos)
