@@ -15,7 +15,7 @@ public:
     mediatheque();
     ~mediatheque();
     void add (std::string param);
-    void save (std::string param) const;
+    void save (std::string param);
     int load (std::string param);
     void search (std::string param);
     void list ();
