@@ -17,14 +17,15 @@ public:
     mediatheque();
     ~mediatheque();
     void add (std::string param);
-    void save (std::string param);
+    void save (std::string param) const;
     int load (std::string param);
     void search (std::string param);
     void list ();
     void clear ();
-    void show (std::string param);
+    void show (std::string param) const;
     void delet (std::string param);
     void reset ();
+    string miseenforme(string modif, int taille);
 
 };
 

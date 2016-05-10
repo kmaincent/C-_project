@@ -44,7 +44,7 @@ ressource_num::ressource_num(type_ressource _type, int _id, std::string _titre, 
 void ressource_num::show() const
 {
     ressource::show();
-    cout<<"Format"<<format<<endl
+    cout<<"Format: "<<format<<endl
        <<"Taille: "<<taille<< "Ko" <<endl
       <<"URL: "<<URL<<endl;
 }

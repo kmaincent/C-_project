@@ -4,6 +4,7 @@ int main(int argc, char *argv[])
 {
 
     mediatheque media;
+    media.load("Backup.txt"); // #FAINEANT
     string str, fonction, param;
     int pos=0;
 
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 
         }
     }
-
+    user.is_admin("ADMIN");
     do{
         if(user.getAdmin())
             cout<<endl<<endl<<"Bienvenu "<<user.getNom()<<" vous etes connecte en tant qu'administrateur"<<endl;

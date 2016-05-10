@@ -24,6 +24,9 @@ public:
     void setAuteur(const string &value);
     type_ressource getType() const;
     void setType(const type_ressource &value);
+    int getId() const;
+    void setId(int value);
+
 
 };
 

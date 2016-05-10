@@ -30,6 +30,16 @@ void ressource::setType(const type_ressource &value)
 {
     type = value;
 }
+int ressource::getId() const
+{
+    return id;
+}
+
+void ressource::setId(int value)
+{
+    id = value;
+}
+
 ressource::ressource()
 {
 
