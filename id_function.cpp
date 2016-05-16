@@ -12,10 +12,11 @@ void is_a_parameter(std::string& param)
 
 int id_function(mediatheque& media, utilisateur user, std::string str, std::string param)
 {
-    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, ERROR};
+    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, CONCHITA, ERROR};
     list_function _function = ERROR;
     transform(str.begin(), str.end(), str.begin(), ::toupper);
-    for (int i=0; i<10; i++)
+    string tmp ="";
+    for (int i=0; i<11; i++)
     {
         if(str==list_function_str[i])
         {
@@ -26,14 +27,31 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     switch (_function)
     {
     case BYE :
-        cout<<"Au revoir, merci d'avoir utilisé notre logiciel"<<endl;
+        cout<<"Au revoir, merci d'avoir utilise notre logiciel"<<endl;
         media.save_state(user);
         return 0;
+        break;
+    case CONCHITA :
+        cout << "Si vous utilisez cette fonction la recherche courante sera perdue!" << endl;
+        cout << "Souhaitez-vous poursuivre cette opération? y/n" << endl;
+        do{
+            cin >> tmp;
+            if (tmp=="y")
+            {
+                media.conchita();
+                media.clear();
+                media.list();
+            }
+            else if (tmp=="n")
+                ;
+            else
+                cout << "Commande incorrecte." << endl;
+        }while(tmp!="y" && tmp!="n");
         break;
     case ADD :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
             break;
         }
         is_a_parameter(param);
@@ -70,7 +88,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case DELETE :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
             break;
         }
         is_a_parameter(param);
@@ -79,7 +97,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case RESET :
         if(!user.getAdmin())
         {
-            cout<<"Vous n'etes pas autoriser a utiliser cette commande."<<endl;
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
             break;
         }
         media.reset();

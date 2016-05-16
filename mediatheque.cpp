@@ -33,32 +33,32 @@ void mediatheque::add(std::string param)
     {
     case CD:
         base_donnees.push_back(new cd());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(CD));
         nb_cd ++;
         break;
     case DVD:
         base_donnees.push_back(new dvd());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(DVD));
         nb_dvd ++;
         break;
     case LIVRE:
         base_donnees.push_back(new livre());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(LIVRE));
         nb_livre ++;
         break;
     case REVUE:
         base_donnees.push_back(new revue());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(REVUE));
         nb_revue ++;
         break;
     case VHS:
         base_donnees.push_back(new vhs());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(VHS));
         nb_vhs ++;
         break;
     case RESSOURCE_NUM:
         base_donnees.push_back(new ressource_num());
-        base_donnees[nb_ressource]->setId(nb_ressource);
+        base_donnees[nb_ressource]->setId(getNextId(RESSOURCE_NUM));
         nb_docnum ++;
         break;
     default:
@@ -112,32 +112,32 @@ int mediatheque::load(const std::string file_name)
         {
         case CD:
             base_donnees.push_back(new cd());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(CD));
             nb_cd ++;
             break;
         case DVD:
             base_donnees.push_back(new dvd());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(DVD));
             nb_dvd ++;
             break;
         case LIVRE:
             base_donnees.push_back(new livre());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(LIVRE));
             nb_livre ++;
             break;
         case REVUE:
             base_donnees.push_back(new revue());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(REVUE));
             nb_revue ++;
             break;
         case VHS:
             base_donnees.push_back(new vhs());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(VHS));
             nb_vhs ++;
             break;
         case RESSOURCE_NUM:
             base_donnees.push_back(new ressource_num());
-            base_donnees[nb_ressource]->setId(nb_ressource);
+            base_donnees[nb_ressource]->setId(getNextId(RESSOURCE_NUM));
             nb_docnum ++;
             break;
         default:
@@ -160,7 +160,7 @@ int mediatheque::load(const std::string file_name)
 
 void mediatheque::search(std::string param)
 {
-    if (base_recherche.size()!=nb_ressource)
+    if ((signed)base_recherche.size()!=nb_ressource)
         base_recherche.insert(base_recherche.begin(), nb_ressource,true);
     for (unsigned int i=0; i<base_donnees.size(); i++)
     {
@@ -168,13 +168,20 @@ void mediatheque::search(std::string param)
     }
 }
 
-void mediatheque::show(std::string param) const
+int mediatheque::show(std::string param) const
 {
     int _id = atoi(param.c_str());
-    if (_id<=nb_ressource and _id > 0 )
-        base_donnees[_id-1]->show();
-    else
-        cout<<"Pas de ressource à cet ID"<<nb_ressource<<endl;
+    cout << _id << endl;
+    for (int i=0; i < nb_ressource; i++)
+    {
+        if (base_donnees[i]->getId()==_id)
+        {
+            base_donnees[i]->show();
+            return 0;
+        }
+    }
+    cout<<"Pas de ressource a cet ID."<<endl;
+    return 0;
 }
 
 void mediatheque::delet(std::string param)
@@ -215,8 +222,8 @@ void mediatheque::delet(std::string param)
 
 void mediatheque::clear()
 {
-    for (int i=0; i<base_recherche.size(); i++)
-        base_recherche[i]=0;
+    for (int i=0; i<(signed)base_recherche.size(); i++)
+        base_recherche[i]=true;
 }
 
 void mediatheque::list()
@@ -236,7 +243,6 @@ void mediatheque::list()
             str3 = miseenforme(base_donnees[i]->getAuteur(),19); // 19 caractères pour l'auteur
             str4 = miseenforme(base_donnees[i]->getTitre(),34); // 34 caractères pour l'id
             cout << "|" << str1 << "|" << str2 << "|" << str3 << "|" << str4 << "|" << endl;
-            //base_donnees[i]->show();
         }
     }
     cout << "-------------------------------------------------------------------------------" << endl;
@@ -312,4 +318,56 @@ void mediatheque::save_state(utilisateur user) const
     }
     infile.close();
 
+}
+
+void mediatheque::conchita() //Reeordonne les medias selon leur identifiants
+{
+    bool stay (true);
+    for (int i=0; i<(nb_ressource +1); i++)
+    {
+        if (stay == true)
+        {
+            stay= false;
+            for (int j=0; j<nb_ressource-1; j++)
+            {
+                if(base_donnees[j]->getId()>base_donnees[j+1]->getId())
+                {
+                    stay=true;
+                    std::swap(base_donnees[j],base_donnees[j+1]);
+                    // base_donnees[j].swap(base_donnees[j+1]);S
+                }
+            }
+        }
+        else
+            break;
+    }
+}
+
+int mediatheque::getNextId (type_ressource type)
+{
+    int nextId (0);
+    switch (type)
+    {
+    case CD:
+        nextId=ID_CD + nb_cd;
+        break;
+    case DVD:
+        nextId=ID_DVD + nb_dvd;
+        break;
+    case LIVRE:
+        nextId=ID_LIVRE + nb_livre;
+        break;
+    case REVUE:
+        nextId=ID_REVUE + nb_revue;
+        break;
+    case VHS:
+        nextId=ID_VHS + nb_vhs;
+        break;
+    case RESSOURCE_NUM:
+        nextId=ID_RESSOURCE_NUM + nb_docnum;
+        break;
+    default:
+        break;
+    }
+    return nextId;
 }

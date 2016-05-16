@@ -5,31 +5,40 @@ int main()
 {
 
     mediatheque media;
-    string str, fonction, param;
+    string str, mdp, fonction, param;
     int pos=0;
-
+    bool exit(true);
     cout<<"Bonjour!"<<endl<<"Vous utilisez l'application eirbmedia qui reference toutes les donnees disponibles dans la bibliotheque."<<endl;
     cout<<"Identifiant ?"<<endl;
     str="";
     getline(cin, str);
     utilisateur user(str);
-    cout<<"Etes vous administrateur ? y/n"<<endl;
-    str="";
-    getline(cin, str);
-    if (str=="y")
-    {
-        cout<<"Quel est le mot de passe"<<endl;
-        for(int i = 3; i>=0 ; i--)
+    do{
+        cout<<"Etes vous administrateur ? y/n"<<endl;
+        str="";
+        getline(cin, str);
+        if (str=="y")
         {
-            str="";
-            getline(cin, str);
-            if(user.is_admin(str))
-                break;
-            cout<<"Mauvais mot de passe."<<endl
+            cout<<"Quel est le mot de passe?"<<endl;
+            for(int i = 3; i>=0 ; i--)
+            {
+                str="";
+                getline(cin, str);
+                if(user.is_admin(str))
+                {
+                    exit = false;
+                    break;
+                }
+                cout<<"Mauvais mot de passe."<<endl
                    <<"Il vous reste "<<i<<" essai"<<endl;
 
+            }
         }
-    }
+        else if(str=="n")
+            exit = false;
+        else
+            cout << "Choix incorrect. Veuillez recommencer." << endl;
+    }while(exit);
     media.load_state(user);
     do{
         if(user.getAdmin())

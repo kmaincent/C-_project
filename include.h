@@ -30,4 +30,14 @@ using namespace std;
 #define NB_DATA_DVD           1+NB_DATA_RESSOURCE+NB_DATA_VHS
 #define NB_DATA_RESSOURCE_NUM 3+NB_DATA_RESSOURCE
 
+//Pour le calcul du prochain index de chaque ressource
+
+#define ID_RESSOURCE     00000
+#define ID_LIVRE         10000
+#define ID_REVUE         20000
+#define ID_CD            30000
+#define ID_VHS           40000
+#define ID_DVD           50000
+#define ID_RESSOURCE_NUM 60000
+
 #endif

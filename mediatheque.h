@@ -20,9 +20,11 @@ public:
     void search (std::string param);
     void list ();
     void clear ();
-    void show (std::string param) const;
+    void conchita (); //Permet d'ordonner la médiathèque
+    int show(std::string param) const;
     void delet (std::string param);
     void reset ();
+    int getNextId (type_ressource type);
     string miseenforme(string modif, int taille);
 
     string getNom_media() const;
