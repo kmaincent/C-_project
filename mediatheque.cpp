@@ -170,7 +170,7 @@ void mediatheque::search(std::string param)
     }
 }
 
-int mediatheque::gestion(std::string param, int mode) const //mode 1 pour show 2 pour borrow 3 pour returne 4 pour reserve
+int mediatheque::gestion(std::string param, int mode) //mode 1 pour show 2 pour borrow 3 pour returne 4 pour reserve 5 pour delete
 {
     int _id = atoi(param.c_str());
     for (int i=0; i < nb_ressource; i++)
@@ -197,6 +197,33 @@ int mediatheque::gestion(std::string param, int mode) const //mode 1 pour show 2
                 else
                     base_donnees[i]->setEtat_actuel(RESERVE);
                 break;
+            case 5:
+                switch (base_donnees[i]->getType())
+                {
+                case CD:
+                    nb_cd --;
+                    break;
+                case DVD:
+                    nb_dvd --;
+                    break;
+                case LIVRE:
+                    nb_livre --;
+                    break;
+                case REVUE:
+                    nb_revue --;
+                    break;
+                case VHS:
+                    nb_vhs --;
+                    break;
+                case RESSOURCE_NUM:
+                    nb_docnum --;
+                    break;
+                default:
+                    break;
+                }
+                base_donnees.erase(base_donnees.begin() + i -1);
+                base_recherche.erase(base_recherche.begin() + i -1);
+                break;
             default:
                 cout << "Mode de fonctionnement inconnu."<< endl;
                 break;
@@ -208,41 +235,6 @@ int mediatheque::gestion(std::string param, int mode) const //mode 1 pour show 2
     return 0;
 }
 
-void mediatheque::delet(std::string param)
-{
-    int _id = atoi(param.c_str());
-    if (_id<nb_ressource and _id > 0)
-    {
-        switch (base_donnees[_id]->getType())
-        {
-        case CD:
-            nb_cd --;
-            break;
-        case DVD:
-            nb_dvd --;
-            break;
-        case LIVRE:
-            nb_livre --;
-            break;
-        case REVUE:
-            nb_revue --;
-            break;
-        case VHS:
-            nb_vhs --;
-            break;
-        case RESSOURCE_NUM:
-            nb_docnum --;
-            break;
-        default:
-            break;
-        }
-        base_donnees.erase(base_donnees.begin() + _id -1);
-        base_recherche.erase(base_recherche.begin() + _id -1);
-    }
-    else
-        cout<<"Pas de ressource à cet ID"<<nb_ressource<<endl;
-
-}
 
 void mediatheque::clear()
 {
@@ -286,6 +278,7 @@ void mediatheque::reset()
         delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
         base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
+    //~base_recherche();
 }
 
 

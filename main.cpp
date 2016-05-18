@@ -67,8 +67,7 @@ int main()
         }
     }
     while(id_function(media, user, fonction, param));
-
     media.~mediatheque();
 
-    return 1;
+    return EXIT_SUCCESS;
 }

@@ -29,6 +29,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case BYE :
         cout<<"Au revoir, merci d'avoir utilise notre logiciel"<<endl;
         media.save_state(user);
+        media.reset();
         return 0;
         break;
     case CONCHITA :
@@ -120,7 +121,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
             break;
         }
         is_a_parameter(param);
-        media.delet(param);
+        media.gestion(param,5);
         break;
     case RESET :
         if(!user.getAdmin())
