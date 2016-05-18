@@ -21,7 +21,7 @@ public:
     void list ();
     void clear ();
     void conchita (); //Permet d'ordonner la médiathèque
-    int show(std::string param) const;
+    int gestion(std::string param, int mode) const;
     void delet (std::string param);
     void reset ();
     int getNextId (type_ressource type);

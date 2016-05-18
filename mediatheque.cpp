@@ -68,6 +68,7 @@ void mediatheque::add(std::string param)
 
     }
     base_donnees[nb_ressource]->setType(enum_string_type(param));
+    base_donnees[nb_ressource]->setEtat_actuel(DISPONIBLE);
     base_donnees[nb_ressource]->load(cin);
     base_recherche.push_back(1);
     nb_ressource++;
@@ -148,6 +149,7 @@ int mediatheque::load(const std::string file_name)
         }
         std::cout.setstate(std::ios_base::failbit);
         base_donnees[nb_ressource]->setType(enum_string_type(type));
+        //base_donnees[nb_ressource]->setEtat_actuel(DISPONIBLE); //géré dans le load de ressource a priori
         base_donnees[nb_ressource]->load(infile);
         base_recherche.push_back(1);
         nb_ressource++;
@@ -168,15 +170,37 @@ void mediatheque::search(std::string param)
     }
 }
 
-int mediatheque::show(std::string param) const
+int mediatheque::gestion(std::string param, int mode) const //mode 1 pour show 2 pour borrow 3 pour returne 4 pour reserve
 {
     int _id = atoi(param.c_str());
-    cout << _id << endl;
     for (int i=0; i < nb_ressource; i++)
     {
         if (base_donnees[i]->getId()==_id)
         {
-            base_donnees[i]->show();
+            switch (mode)
+            {
+            case 1:
+                base_donnees[i]->show();
+                break;
+            case 2:
+                if (base_donnees[i]->getEtat_actuel()==RESERVE)
+                    cout << "Impossible car ce livre est deja reserve." << endl;
+                else
+                    base_donnees[i]->setEtat_actuel(EMPRUNTE);
+                break;
+            case 3:
+                base_donnees[i]->setEtat_actuel(DISPONIBLE);
+                break;
+            case 4:
+                if (base_donnees[i]->getEtat_actuel()==EMPRUNTE)
+                    cout << "Impossible car ce livre est deja emprunte." << endl;
+                else
+                    base_donnees[i]->setEtat_actuel(RESERVE);
+                break;
+            default:
+                cout << "Mode de fonctionnement inconnu."<< endl;
+                break;
+            }
             return 0;
         }
     }

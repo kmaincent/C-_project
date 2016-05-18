@@ -16,8 +16,8 @@ dvd::dvd()
 
 }
 
-dvd::dvd(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, int _nb_chap) :
-    vhs(_type, _id, _titre, _auteur, _duree, _maison_prod), //vhs
+dvd::dvd(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, int _nb_chap, etat _etat) :
+    vhs(_type, _id, _titre, _auteur, _duree, _maison_prod, _etat), //vhs
     nb_chap(_nb_chap)
 {
 }

@@ -45,8 +45,8 @@ livre::livre()
 
 }
 
-livre::livre(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume) :
-    ressource(_type, _id, _titre, _auteur), //ressource
+livre::livre(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume, etat _etat) :
+    ressource(_type, _id, _titre, _auteur, _etat), //ressource
     annee_publication(_annee_publi), nb_pages(_nb_page), collection(_collection), resume(_resume) //livre
 {
 }

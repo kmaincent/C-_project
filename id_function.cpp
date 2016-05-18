@@ -12,11 +12,11 @@ void is_a_parameter(std::string& param)
 
 int id_function(mediatheque& media, utilisateur user, std::string str, std::string param)
 {
-    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, CONCHITA, ERROR};
+    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, CONCHITA, RESERV, BORROW, RETURN, ERROR};
     list_function _function = ERROR;
     transform(str.begin(), str.end(), str.begin(), ::toupper);
     string tmp ="";
-    for (int i=0; i<11; i++)
+    for (int i=0; i<14; i++)
     {
         if(str==list_function_str[i])
         {
@@ -60,6 +60,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         break;
     case LOAD :
         is_a_parameter(param);
+        media.reset();
         media.load(param);
         break;
     case SAVE :
@@ -83,7 +84,34 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         break;
     case SHOW :
         is_a_parameter(param);
-        media.show(param);
+        media.gestion(param,1);
+        break;
+    case BORROW :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            break;
+        }
+        is_a_parameter(param);
+        media.gestion(param,2);
+        break;
+    case RETURN :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            break;
+        }
+        is_a_parameter(param);
+        media.gestion(param,3);
+        break;
+    case RESERV :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            break;
+        }
+        is_a_parameter(param);
+        media.gestion(param,4);
         break;
     case DELETE :
         if(!user.getAdmin())

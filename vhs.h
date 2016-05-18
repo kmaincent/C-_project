@@ -9,7 +9,7 @@ protected :
     std::string maison_prod;
 public:
     vhs();
-    vhs(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod);
+    vhs(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, etat _etat);
     virtual void show() const;
     virtual void save(std::ofstream &infile) const;
     virtual bool search(std::string str) const;
