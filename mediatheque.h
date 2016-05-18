@@ -25,6 +25,7 @@ public:
     void reset ();
     int getNextId (type_ressource type);
     string miseenforme(string modif, int taille);
+	void reload();
 
     string getNom_media() const;
     void setNom_media(const string &value);

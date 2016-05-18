@@ -131,6 +131,8 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         }
         media.reset();
         break;
+   case RELOAD:
+	media.reload();	
     case ERROR:
     default :
         cout<<"Mauvaise commande, veuillez reessayer."<<endl;

@@ -15,6 +15,7 @@ mediatheque::~mediatheque()
         delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
         base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
+	//cout<<"destruction"<<endl;
 }
 
 string mediatheque::getNom_media() const
@@ -255,7 +256,9 @@ void mediatheque::list()
         {
             string str1, str2, str3, str4;
             char buffer[6];
-            str1 = miseenforme(itoa(base_donnees[i]->getId(), buffer, 10),6); // 6 caractères pour l'id
+		ostringstream tampon;
+		tampon << base_donnees[i]->getId();
+            str1 = miseenforme(tampon.str(),6); // 6 caractères pour l'id
             str2 = miseenforme(enum_string_type(base_donnees[i]->getType()),15); // 15 caractères pour le type
             str3 = miseenforme(base_donnees[i]->getAuteur(),19); // 19 caractères pour l'auteur
             str4 = miseenforme(base_donnees[i]->getTitre(),34); // 34 caractères pour l'id
@@ -297,10 +300,7 @@ void mediatheque::load_state(utilisateur user)
     ifstream infile;
     infile.open(user.getNom().c_str());
     if (infile.fail())
-    {
-        cout<<"Ce fichier n'existe pas."<<endl;
         return;
-    }
     tampon="";
     getline(infile, tampon);
     load(tampon);
@@ -325,6 +325,8 @@ void mediatheque::save_state(utilisateur user) const
     infile.open(user.getNom().c_str());
     if (infile.fail())
         return;
+    if (nom_media=="")
+	return;
     infile<<nom_media<<endl;
     for(unsigned i(0) ; i < base_recherche.size() ; i++) {
 
@@ -388,4 +390,9 @@ int mediatheque::getNextId (type_ressource type)
         break;
     }
     return nextId;
+}
+
+void mediatheque::reload()
+{
+	load(nom_media);
 }
