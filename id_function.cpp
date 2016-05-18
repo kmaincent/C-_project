@@ -12,11 +12,11 @@ void is_a_parameter(std::string& param)
 
 int id_function(mediatheque& media, utilisateur user, std::string str, std::string param)
 {
-    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, CONCHITA, RESERV, BORROW, RETURN, ERROR};
+    list_function temp[]={BYE, ADD, LOAD, SAVE, SEARCH, CLEAR, LIST, SHOW, DELETE, RESET, CONCHITA, RESERV, BORROW, RETURN, RELOAD, ERROR};
     list_function _function = ERROR;
     transform(str.begin(), str.end(), str.begin(), ::toupper);
     string tmp ="";
-    for (int i=0; i<14; i++)
+    for (int i=0; i<15; i++)
     {
         if(str==list_function_str[i])
         {
@@ -131,6 +131,9 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         }
         media.reset();
         break;
+   case RELOAD:
+	media.reload();	
+	break;
     case ERROR:
     default :
         cout<<"Mauvaise commande, veuillez reessayer."<<endl;
