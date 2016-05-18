@@ -223,6 +223,7 @@ int mediatheque::gestion(std::string param, int mode) //mode 1 pour show 2 pour 
                 }
                 base_donnees.erase(base_donnees.begin() + i -1);
                 base_recherche.erase(base_recherche.begin() + i -1);
+                nb_ressource --;
                 break;
             default:
                 cout << "Mode de fonctionnement inconnu."<< endl;
