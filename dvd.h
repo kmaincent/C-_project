@@ -9,6 +9,7 @@ private:
 
 public:
     dvd();
+    virtual ~dvd();
     dvd(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, int _nb_chap, etat _etat);
     virtual void show() const;
     virtual void save(std::ofstream &infile) const;

@@ -55,6 +55,11 @@ ressource::ressource()
 
 }
 
+ressource::~ressource()
+{
+
+}
+
 ressource::ressource(type_ressource _type, int _id, std::string _titre, std::string _auteur, etat etate):
     id(_id),titre(_titre),auteur(_auteur), type(_type), etat_actuel(etate)
 {

@@ -34,6 +34,11 @@ void revue::setNb_article(int value)
 revue::revue()
 {
 }
+
+revue::~revue()
+{
+
+}
 /*
 revue::revue(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume, std::string _editeur, int _nb_article, std::string _nom_article, etat _etat) :
     livre( _type, _id, _titre, _auteur, _annee_publi, _nb_page, _collection, _resume, _etat), //livre

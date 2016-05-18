@@ -14,6 +14,7 @@ protected:
 
 public:
     ressource();
+    virtual ~ressource();
     ressource(type_ressource _type, int _id, std::string _titre, std::string _auteur, etat etate);
     virtual void show() const;
     virtual void save(std::ofstream &infile) const;

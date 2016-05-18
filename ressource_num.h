@@ -9,6 +9,7 @@ private:
     std::string URL, format;
 public:
     ressource_num();
+    virtual ~ressource_num();
     ressource_num(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _taille, std::string _format, std::string _URL, etat _etat);
     virtual void show() const;
     virtual void save(std::ofstream &infile) const;

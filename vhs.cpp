@@ -25,6 +25,11 @@ vhs::vhs()
 
 }
 
+vhs::~vhs()
+{
+
+}
+
 vhs::vhs(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _duree, std::string _maison_prod, etat _etat):
     ressource(_type, _id, _titre, _auteur, _etat), //ressource
     duree(_duree), maison_prod(_maison_prod) //vhs

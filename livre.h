@@ -9,6 +9,7 @@ protected:
 
 public:
     livre();
+    virtual ~livre();
     livre(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _annee_publi, int _nb_page, std::string _collection, std::string _resume, etat _etat);
     virtual void show() const;
     virtual void save(std::ofstream &infile) const;

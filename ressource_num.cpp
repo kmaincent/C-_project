@@ -35,6 +35,11 @@ ressource_num::ressource_num()
 
 }
 
+ressource_num::~ressource_num()
+{
+
+}
+
 ressource_num::ressource_num(type_ressource _type, int _id, std::string _titre, std::string _auteur, int _taille, std::string _format, std::string _URL, etat _etat) :
     ressource(_type, _id, _titre, _auteur, _etat), //ressource
     taille(_taille), URL(_URL), format(_format) //ressource numerique
