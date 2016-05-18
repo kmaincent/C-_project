@@ -31,6 +31,7 @@ public:
     void setNom_media(const string &value);
     void load_state(utilisateur user);
     void save_state(utilisateur user) const;
+    void resetID();
 };
 
 #endif // MEDIATHEQUE_H

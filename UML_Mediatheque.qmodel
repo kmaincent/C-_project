@@ -50,7 +50,7 @@
                          <object>{bde12767-1ba9-4dc4-b462-469ecf3cf3b0}</object>
                          <context>GIT Mediatheque</context>
                          <name>cd</name>
-                         <pos>x:320;y:505</pos>
+                         <pos>x:390;y:565</pos>
                          <rect>x:-40;y:-35;w:80;h:70</rect>
                          <visual-role>0</visual-role>
                          <visual-emphasized>true</visual-emphasized>
@@ -73,7 +73,7 @@
                          <object>{ceb28d5d-d02a-4e1f-a04d-7667f1d1fbff}</object>
                          <context>GIT Mediatheque</context>
                          <name>dvd</name>
-                         <pos>x:450;y:505</pos>
+                         <pos>x:510;y:565</pos>
                          <rect>x:-40;y:-35;w:80;h:70</rect>
                          <visual-role>0</visual-role>
                          <visual-emphasized>true</visual-emphasized>
@@ -96,7 +96,7 @@
                          <object>{447737d8-6cbf-42a1-9e81-6991fd6a5055}</object>
                          <context>GIT Mediatheque</context>
                          <name>livre</name>
-                         <pos>x:180;y:385</pos>
+                         <pos>x:235;y:415</pos>
                          <rect>x:-65;y:-55;w:130;h:110</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -120,7 +120,7 @@
                          <object>{536a42f6-4c51-4891-a3b6-8282a91c3b5c}</object>
                          <context>GIT Mediatheque</context>
                          <name>ressource</name>
-                         <pos>x:380;y:255</pos>
+                         <pos>x:460;y:250</pos>
                          <rect>x:-60;y:-55;w:120;h:110</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -144,7 +144,7 @@
                          <object>{aeedf840-662a-4649-b70a-7af20faa30d2}</object>
                          <context>GIT Mediatheque</context>
                          <name>ressource_num</name>
-                         <pos>x:570;y:380</pos>
+                         <pos>x:595;y:410</pos>
                          <rect>x:-50;y:-50;w:100;h:100</rect>
                          <visual-role>0</visual-role>
                          <visual-emphasized>true</visual-emphasized>
@@ -167,7 +167,7 @@
                          <object>{f0605ce9-20a4-4aaa-aa0f-fc434440d2f7}</object>
                          <context>GIT Mediatheque</context>
                          <name>revue</name>
-                         <pos>x:180;y:520</pos>
+                         <pos>x:235;y:555</pos>
                          <rect>x:-55;y:-50;w:110;h:100</rect>
                          <visual-role>0</visual-role>
                          <visual-emphasized>true</visual-emphasized>
@@ -190,7 +190,7 @@
                          <object>{f8f0c33e-1339-462c-bd89-e7b3fcce3463}</object>
                          <context>GIT Mediatheque</context>
                          <name>vhs</name>
-                         <pos>x:380;y:395</pos>
+                         <pos>x:440;y:430</pos>
                          <rect>x:-55;y:-45;w:110;h:90</rect>
                          <visual-role>0</visual-role>
                          <visual-emphasized>true</visual-emphasized>
@@ -339,9 +339,37 @@
                       </DAssociation>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{4587fc21-cbef-427c-b4d9-ededc3b1662c}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{319c0d72-5632-46be-96d6-67c39a67f02b}</object>
+                         <stereotypes>
+                          <qlist>
+                           <item>entity</item>
+                          </qlist>
+                         </stereotypes>
+                         <context>GIT Mediatheque</context>
+                         <name>mediatheque</name>
+                         <pos>x:170;y:220</pos>
+                         <rect>x:-75;y:-105;w:150;h:210</rect>
+                         <visual-role>0</visual-role>
+                         <visual-emphasized>true</visual-emphasized>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1463590374529</last-modified>
+                  <last-modified>1463608656382</last-modified>
                  </MDiagram>
                 </base-MDiagram>
                </MCanvasDiagram>
@@ -445,7 +473,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{6e73d8c7-4d29-46e0-8a47-bbd34906c409}</uid>
+                               <uid>{278a4d91-5576-4878-ad4a-ca2eac7af68e}</uid>
                                <type>1</type>
                                <declaration>int nb_pistes</declaration>
                               </MClassMember>
@@ -513,7 +541,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{9a4877b4-67bb-4cac-980b-c059f6763070}</uid>
+                               <uid>{bfde1de8-a965-4ec6-a8ab-d7cea90039d5}</uid>
                                <type>1</type>
                                <declaration>int nb_chap</declaration>
                               </MClassMember>
@@ -608,28 +636,28 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{55b79925-105e-4d96-bf51-c4e03db6b239}</uid>
+                               <uid>{f16416dd-db05-484c-b3d1-3f486f6d3fb9}</uid>
                                <type>1</type>
                                <declaration>int annee_publication</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{cffe0097-0acd-4752-b41c-cf3ce9d9efb6}</uid>
+                               <uid>{3c18f465-1e88-4f62-88bd-d0e8174ed4b1}</uid>
                                <type>1</type>
                                <declaration>int nb_pages</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{db0ec2a8-d3a9-4377-9bcb-24355ebcd083}</uid>
+                               <uid>{b7817dac-241c-4e43-8893-89f5fd623bec}</uid>
                                <type>1</type>
                                <declaration>string collection</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{138db5c9-22d3-4fbd-af69-f55e9bcaaa47}</uid>
+                               <uid>{a59fce16-2842-4b2b-99ae-fc4aa86dd6c6}</uid>
                                <type>1</type>
                                <declaration>string resume</declaration>
                               </MClassMember>
@@ -741,6 +769,55 @@
                                    </target>
                                   </handle>
                                  </item>
+                                 <item>
+                                  <handle>
+                                   <uid>{2bd62de6-d892-4451-8a88-c1a24e9e2f21}</uid>
+                                   <target>
+                                    <instance type="MInheritance">
+                                     <MInheritance>
+                                      <base-MRelation>
+                                       <MRelation>
+                                        <base-MElement>
+                                         <MElement>
+                                          <uid>{2bd62de6-d892-4451-8a88-c1a24e9e2f21}</uid>
+                                         </MElement>
+                                        </base-MElement>
+                                        <a>{536a42f6-4c51-4891-a3b6-8282a91c3b5c}</a>
+                                        <b>{319c0d72-5632-46be-96d6-67c39a67f02b}</b>
+                                       </MRelation>
+                                      </base-MRelation>
+                                     </MInheritance>
+                                    </instance>
+                                   </target>
+                                  </handle>
+                                 </item>
+                                 <item>
+                                  <handle>
+                                   <uid>{87e2f348-3075-41ba-85e4-02ab2d0eee1d}</uid>
+                                   <target>
+                                    <instance type="MInheritance">
+                                     <MInheritance>
+                                      <base-MRelation>
+                                       <MRelation>
+                                        <base-MElement>
+                                         <MElement>
+                                          <uid>{87e2f348-3075-41ba-85e4-02ab2d0eee1d}</uid>
+                                          <stereotypes>
+                                           <qlist>
+                                            <item>boundary</item>
+                                           </qlist>
+                                          </stereotypes>
+                                         </MElement>
+                                        </base-MElement>
+                                        <a>{536a42f6-4c51-4891-a3b6-8282a91c3b5c}</a>
+                                        <b>{319c0d72-5632-46be-96d6-67c39a67f02b}</b>
+                                       </MRelation>
+                                      </base-MRelation>
+                                     </MInheritance>
+                                    </instance>
+                                   </target>
+                                  </handle>
+                                 </item>
                                 </qlist>
                                </handles>
                               </handles>
@@ -751,28 +828,28 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{f14b5c1b-3b33-42a8-a488-a0cefdbdf13c}</uid>
+                               <uid>{0d175e9a-9017-4885-a62e-9d041b54e883}</uid>
                                <type>1</type>
                                <declaration>int id</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{1ccb6462-4896-4e04-9ceb-fd6e8281d194}</uid>
+                               <uid>{c0b24ef7-f05c-4340-a367-8021740e3e26}</uid>
                                <type>1</type>
                                <declaration>string titre</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{d61881a4-2b99-4929-94ce-8770e242ea46}</uid>
+                               <uid>{ffede062-12f6-4498-b2f6-0a742f15c53d}</uid>
                                <type>1</type>
                                <declaration>string auteur</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{21464766-56f6-4e5c-ae9d-cdb6016b38ed}</uid>
+                               <uid>{151957ed-8b6f-48e9-bb43-e3881c5cd05b}</uid>
                                <type>1</type>
                                <declaration>type_ressource type</declaration>
                               </MClassMember>
@@ -840,21 +917,21 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{cdb8e4ee-a3a1-43d1-ad2f-d2088706bcd3}</uid>
+                               <uid>{8cd4b743-1baf-4bd6-ae1b-042a9116c1d6}</uid>
                                <type>1</type>
                                <declaration>int taille</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{021ce7cd-a19a-4ea3-9884-3c5019959095}</uid>
+                               <uid>{c8f98464-7ec7-4534-9300-daf10f725051}</uid>
                                <type>1</type>
                                <declaration>string URL</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{2532773e-5932-401f-9de6-544972c71591}</uid>
+                               <uid>{d2f5945e-6193-4c30-8428-d4a543ae75df}</uid>
                                <type>1</type>
                                <declaration>string format</declaration>
                               </MClassMember>
@@ -922,21 +999,21 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{7574c8e2-e0d2-4d5b-b625-cc26122dfb45}</uid>
+                               <uid>{30d9b8e5-c8b4-4a3b-a5cd-153c718f29a3}</uid>
                                <type>1</type>
                                <declaration>string editeur</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{18d1a7e9-b2f6-43ed-92b5-86981c1b10e6}</uid>
+                               <uid>{d0d4e4f0-764c-4d49-869f-1e5b0271653a}</uid>
                                <type>1</type>
                                <declaration>int nb_article</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{7c1953db-2304-417a-8757-ddc9de2548e7}</uid>
+                               <uid>{a96ef98c-a21a-49a2-be9b-b9d6e123a79f}</uid>
                                <type>1</type>
                                <declaration>string nom_article</declaration>
                               </MClassMember>
@@ -1058,16 +1135,139 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{140c6a90-cc14-42ca-ba18-d93fc95a06b3}</uid>
+                               <uid>{2a5f2482-79ee-420c-a419-c5f363896d89}</uid>
                                <type>1</type>
                                <declaration>int duree</declaration>
                               </MClassMember>
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{588ae306-92a1-45d4-9ef9-18c3cf029182}</uid>
+                               <uid>{d8c76f27-d3b2-4b4c-b62f-a2ae2c069985}</uid>
                                <type>1</type>
                                <declaration>string maison_prod</declaration>
+                              </MClassMember>
+                             </item>
+                            </qlist>
+                           </members>
+                          </MClass>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{86bcdc3c-a5cc-4998-8d18-e80e65251201}</uid>
+                        <target>
+                         <instance type="MComponent">
+                          <MComponent>
+                           <base-MObject>
+                            <MObject>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{86bcdc3c-a5cc-4998-8d18-e80e65251201}</uid>
+                               <flags>1</flags>
+                              </MElement>
+                             </base-MElement>
+                             <name>Mediatheque</name>
+                            </MObject>
+                           </base-MObject>
+                          </MComponent>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{319c0d72-5632-46be-96d6-67c39a67f02b}</uid>
+                        <target>
+                         <instance type="MClass">
+                          <MClass>
+                           <base-MObject>
+                            <MObject>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{319c0d72-5632-46be-96d6-67c39a67f02b}</uid>
+                               <flags>1</flags>
+                               <stereotypes>
+                                <qlist>
+                                 <item>entity</item>
+                                </qlist>
+                               </stereotypes>
+                              </MElement>
+                             </base-MElement>
+                             <name>mediatheque</name>
+                            </MObject>
+                           </base-MObject>
+                           <members>
+                            <qlist>
+                             <item>
+                              <MClassMember>
+                               <uid>{42fd750a-caff-4dfe-85a0-5994ac626996}</uid>
+                               <type>1</type>
+                               <declaration>int nb_ressource</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{6c4fc376-b977-4386-b0e3-0b2f9c178ec4}</uid>
+                               <type>1</type>
+                               <declaration>int nb_livre</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{8c684488-958a-48ce-8cdf-c6743540bcf2}</uid>
+                               <type>1</type>
+                               <declaration>int nb_revue</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{d194bafe-5d88-432a-85b2-987ea4a5b973}</uid>
+                               <type>1</type>
+                               <declaration>int nb_cd</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{c245bb71-f367-4a82-9085-124aab00641c}</uid>
+                               <type>1</type>
+                               <declaration>int nb_vhs</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{31688c3e-7359-45f0-a71e-8591594d0283}</uid>
+                               <type>1</type>
+                               <declaration>int nb_dvd</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{9462c00d-bf49-4f04-a44f-7241ec8d8a9d}</uid>
+                               <type>1</type>
+                               <declaration>int nb_docnum</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{34146114-0284-49f0-a919-b2b9e3a46993}</uid>
+                               <type>1</type>
+                               <declaration>string nom_media</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{95e87101-e920-46e9-8e5e-9ac8384afb51}</uid>
+                               <type>1</type>
+                               <declaration>std::vector &lt;ressource*&gt; base_donnees</declaration>
+                              </MClassMember>
+                             </item>
+                             <item>
+                              <MClassMember>
+                               <uid>{ff91b06c-6dcf-4528-9470-1e30f8359bd5}</uid>
+                               <type>1</type>
+                               <declaration>std::vector &lt;bool&gt; base_recherche</declaration>
                               </MClassMember>
                              </item>
                             </qlist>

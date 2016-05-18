@@ -122,6 +122,7 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
         }
         is_a_parameter(param);
         media.gestion(param,5);
+        media.resetID();
         break;
     case RESET :
         if(!user.getAdmin())

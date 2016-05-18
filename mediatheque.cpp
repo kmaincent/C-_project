@@ -257,9 +257,9 @@ void mediatheque::list()
     {  if(base_recherche[i]==1)
         {
             string str1, str2, str3, str4;
-            char buffer[6];
-		ostringstream tampon;
-		tampon << base_donnees[i]->getId();
+            //char buffer[6];
+            ostringstream tampon;
+            tampon << base_donnees[i]->getId();
             str1 = miseenforme(tampon.str(),6); // 6 caractères pour l'id
             str2 = miseenforme(enum_string_type(base_donnees[i]->getType()),15); // 15 caractères pour le type
             str3 = miseenforme(base_donnees[i]->getAuteur(),19); // 19 caractères pour l'auteur
@@ -402,4 +402,46 @@ void mediatheque::reload()
 		return;
 	reset();
 	load(nom_media);
+}
+
+void mediatheque::resetID()
+{
+    int nbcd (0);
+    int nbdvd (0);
+    int nblivre(0);
+    int nbrevue (0);
+    int nbvhs (0);
+    int nbresnum (0);
+    for (int i=0; i<nb_ressource; i++)
+    {
+        switch (base_donnees[i]->getType())
+        {
+        case CD:
+            base_donnees[i]->setId(ID_CD + nbcd);
+            nbcd ++;
+            break;
+        case DVD:
+            base_donnees[i]->setId(ID_DVD + nbdvd);
+            nbdvd++;
+            break;
+        case LIVRE:
+            base_donnees[i]->setId(ID_LIVRE + nblivre);
+            nblivre++;
+            break;
+        case REVUE:
+            base_donnees[i]->setId(ID_REVUE + nbrevue);
+            nbrevue++;
+            break;
+        case VHS:
+            base_donnees[i]->setId(ID_VHS + nbvhs);
+            nbvhs++;
+            break;
+        case RESSOURCE_NUM:
+            base_donnees[i]->setId(ID_RESSOURCE_NUM + nbresnum);
+            nbresnum++;
+            break;
+        default:
+            break;
+        }
+    }
 }
