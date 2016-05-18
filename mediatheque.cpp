@@ -245,12 +245,14 @@ void mediatheque::clear()
 }
 
 void mediatheque::list()
-{
-    //    if (base_recherche.size()!=nb_ressource)
+{  
+	//    if (base_recherche.size()!=nb_ressource)
     //        base_recherche.insert(base_recherche.begin(), nb_ressource,true);
     cout << "-------------------------------------------------------------------------------" << endl;
     cout << "|ID    |TYPE           |AUTEUR             |TITRE                             |" << endl;
     cout << "-------------------------------------------------------------------------------" << endl;// 81 caractères - 5 pour les barres verticales
+	if (nb_ressource == 0)
+		return ; 
     for (unsigned int i=0; i<base_recherche.size(); i++)
     {  if(base_recherche[i]==1)
         {
@@ -283,6 +285,8 @@ void mediatheque::reset()
         base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
     }
     //~base_recherche();
+	base_donnees.erase(base_donnees.begin(), base_donnees.end());
+	base_recherche.erase(base_recherche.begin(), base_recherche.end());
 }
 
 
@@ -394,5 +398,8 @@ int mediatheque::getNextId (type_ressource type)
 
 void mediatheque::reload()
 {
+	if (nom_media=="")	
+		return;
+	reset();
 	load(nom_media);
 }
