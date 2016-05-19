@@ -29,10 +29,14 @@ int id_function(mediatheque& media, utilisateur user, std::string str, std::stri
     case BYE :
         cout<<"Au revoir, merci d'avoir utilise notre logiciel"<<endl;
         media.save_state(user);
-        media.reset();
         return 0;
         break;
     case CONCHITA :
+        if(!user.getAdmin())
+        {
+            cout<<"Vous n'etes pas autorise a utiliser cette commande."<<endl;
+            break;
+        }
         cout << "Si vous utilisez cette fonction la recherche courante sera perdue!" << endl;
         cout << "Souhaitez-vous poursuivre cette opération? y/n" << endl;
         do{

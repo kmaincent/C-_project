@@ -222,8 +222,8 @@ int mediatheque::gestion(std::string param, int mode) //mode 1 pour show 2 pour 
                 default:
                     break;
                 }
-                base_donnees.erase(base_donnees.begin() + i -1);
-                base_recherche.erase(base_recherche.begin() + i -1);
+                base_donnees.erase(base_donnees.begin() + i);
+                base_recherche.erase(base_recherche.begin() + i);
                 nb_ressource --;
                 break;
             default:
@@ -279,11 +279,12 @@ void mediatheque::reset()
     nb_vhs=0;
     nb_dvd=0;
     nb_docnum=0;
-    for (unsigned int i(0); i<base_donnees.size(); i++)
-    {
-        delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
-        base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
-    }
+    nom_media="";
+//    for (unsigned int i(0); i<base_donnees.size(); i++)
+//    {
+//        delete base_donnees[i]; // Pourquoi mettre à 0 alors qu'on vient de le supprimer?
+//        base_donnees[i]=0; //On libère la i-ème case mémoire allouée puis On met le pointeur à 0 pour éviter les soucis
+//    }
     //~base_recherche();
 	base_donnees.erase(base_donnees.begin(), base_donnees.end());
 	base_recherche.erase(base_recherche.begin(), base_recherche.end());
@@ -307,6 +308,8 @@ void mediatheque::load_state(utilisateur user)
         return;
     tampon="";
     getline(infile, tampon);
+    if (tampon=="")
+        return;
     load(tampon);
     tampon="";
     getline(infile, tampon);
